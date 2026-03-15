@@ -1,0 +1,27 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+
+# Environment variables — NEVER commit these
+.env
+.env.local
+.env.*.local
+
+# Editor
+.idea/
+.vscode/
+*.iml
+
+# OS
+.DS_Store
+
+# Vite cache
+.vite/
+
+# Local Netlify folder
+.netlify
+
+# Java backend — contains credentials
+backend/src/main/resources/application.properties
