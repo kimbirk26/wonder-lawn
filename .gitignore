@@ -25,3 +25,6 @@ dist/
 
 # Java backend — contains credentials
 backend/src/main/resources/application.properties
+
+# Java build output
+backend/target/
