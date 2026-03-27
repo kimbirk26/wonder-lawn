@@ -19,7 +19,7 @@ export default function PlantPage() {
   useEffect(() => { window.scrollTo(0, 0) }, [id])
 
   if (!plant) return (
-    <main className="story-not-found" style={{ paddingTop: '72px' }}>
+    <main className="story-not-found" style={{ paddingTop: '64px' }}>
       <p>Plant not found.</p>
       <Link to="/shop" className="btn-outline">← Back to Shop</Link>
     </main>
@@ -40,7 +40,7 @@ export default function PlantPage() {
   const paragraphs = plant.desc.split('\n').filter(p => p.trim())
 
   return (
-    <main className="plant-page" style={{ paddingTop: '72px' }}>
+    <main className="plant-page" style={{ paddingTop: '64px' }}>
 
       <div className="plant-page-inner">
 
@@ -103,6 +103,36 @@ export default function PlantPage() {
         </div>
 
       </div>
+
+      {/* Hawk moth editorial — lonicera only */}
+      {plant.id === 'lonicera' && (
+        <div className="shop-interlude" style={{ marginTop: '4rem', paddingBottom: '4rem' }}>
+          <div className="shop-interlude-text">
+            <div className="hero-eyebrow" style={{ justifyContent: 'flex-start', marginBottom: '1.25rem' }}>
+              <span className="hero-eyebrow-line" style={{ maxWidth: '2rem' }} />
+              A living garden
+            </div>
+            <p className="shop-interlude-quote">
+              "A garden is never just plants — it is the whole world of creatures drawn to them."
+            </p>
+            <p className="shop-interlude-body">
+              Each plant we select invites life. The lonicera alone draws hummingbird hawk moths, bees, and sunbirds to Cape Town gardens.
+            </p>
+          </div>
+          <figure className="shop-interlude-figure">
+            <img
+              src="/plants/hawkmoth.png"
+              alt="Hummingbird hawk moth feeding from honeysuckle flower"
+              className="shop-interlude-img"
+              loading="lazy"
+            />
+            <figcaption className="shop-interlude-caption">
+              Hummingbird hawk moth on lonicera · Cape Town
+            </figcaption>
+          </figure>
+        </div>
+      )}
+
     </main>
   )
 }

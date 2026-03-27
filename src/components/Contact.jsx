@@ -71,7 +71,7 @@ export default function Contact() {
               <div className="contact-icon">✉</div>
               <div className="contact-text">
                 <strong>Email</strong>
-                hello@wonderlawn.co.za
+                kimbirkdev@gmail.com
               </div>
             </div>
             <div className="contact-detail">

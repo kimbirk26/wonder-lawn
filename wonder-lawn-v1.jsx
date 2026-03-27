@@ -1,9 +1,10 @@
 import { useState } from "react";
+import './wonder-lawn-v1.css';
 
-// ── PALETTE 1: Mint & Rose Garden (from colortones1) ──────────────────────
+// ── PALETTE — used for team card inline colours ───────────────────────────────
 const C = {
   mint:        "#A8D8D4",   // soft teal-mint background
-  mintLight:   "#C8EBER",   // lightest mint
+  mintLight:   "#C8EBE3",   // lightest mint
   mintDeep:    "#6BBFB8",   // deeper teal accent
   sage:        "#7AAE8E",   // sage green
   sageDark:    "#4A7A62",   // deep garden green
@@ -75,7 +76,7 @@ const SERVICES = [
 
 const TEAM = [
   {
-    name: "Kim Yu",
+    name: "Kim Birk",
     role: "Co-Founder",
     quote: "Every garden is a door to somewhere wonderful.",
     emoji: "🌿",
@@ -145,592 +146,6 @@ const TESTIMONIALS = [
   },
 ];
 
-const CSS = `
-  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Jost:wght@300;400;500;600&display=swap');
-
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-  :root {
-    --mint:       ${C.mint};
-    --mintDeep:   ${C.mintDeep};
-    --sage:       ${C.sage};
-    --sageDark:   ${C.sageDark};
-    --sageLight:  ${C.sageLight};
-    --rose:       ${C.rose};
-    --rosePale:   ${C.rosePale};
-    --lavender:   ${C.lavender};
-    --cream:      ${C.cream};
-    --parchment:  ${C.parchment};
-    --dark:       ${C.dark};
-    --darkMid:    ${C.darkMid};
-    --grey:       ${C.grey};
-    --gold:       ${C.gold};
-  }
-
-  html { scroll-behavior: smooth; }
-
-  body {
-    font-family: 'Jost', sans-serif;
-    background: ${C.cream};
-    color: ${C.dark};
-    -webkit-font-smoothing: antialiased;
-  }
-
-  /* ── SCROLLBAR ── */
-  ::-webkit-scrollbar { width: 6px; }
-  ::-webkit-scrollbar-track { background: ${C.parchment}; }
-  ::-webkit-scrollbar-thumb { background: ${C.mintDeep}; border-radius: 3px; }
-
-  /* ── NAV ── */
-  .nav {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-    background: rgba(250,246,240,0.92);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid ${C.sageLight};
-    padding: 0 2.5rem;
-    height: 72px;
-    display: flex; align-items: center; justify-content: space-between;
-    transition: box-shadow 0.3s;
-  }
-  .nav-logo {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.45rem;
-    font-weight: 600;
-    color: ${C.sageDark};
-    letter-spacing: 0.03em;
-    cursor: pointer;
-    display: flex; align-items: center; gap: 0.5rem;
-    text-decoration: none;
-  }
-  .nav-logo-grin {
-    color: ${C.rose};
-    font-size: 1.1rem;
-    letter-spacing: -0.05em;
-    font-style: italic;
-  }
-  .nav-links {
-    display: flex; align-items: center; gap: 2rem;
-  }
-  .nav-link {
-    font-size: 0.82rem; font-weight: 500;
-    letter-spacing: 0.1em; text-transform: uppercase;
-    color: ${C.grey};
-    background: none; border: none; cursor: pointer;
-    transition: color 0.2s; font-family: 'Jost', sans-serif;
-    padding: 0.25rem 0;
-    position: relative;
-  }
-  .nav-link::after {
-    content: '';
-    position: absolute; bottom: -2px; left: 0; right: 0;
-    height: 1px; background: ${C.rose};
-    transform: scaleX(0); transition: transform 0.2s;
-  }
-  .nav-link:hover { color: ${C.sageDark}; }
-  .nav-link:hover::after { transform: scaleX(1); }
-  .nav-cta {
-    background: ${C.sageDark}; color: ${C.cream};
-    border: none; padding: 0.6rem 1.5rem;
-    font-family: 'Jost', sans-serif;
-    font-size: 0.8rem; font-weight: 500;
-    letter-spacing: 0.12em; text-transform: uppercase;
-    cursor: pointer; transition: all 0.25s;
-    border-radius: 2px;
-  }
-  .nav-cta:hover { background: ${C.sage}; transform: translateY(-1px); }
-
-  /* ── HERO ── */
-  .hero {
-    min-height: 100vh;
-    background:
-      radial-gradient(ellipse at 80% 20%, ${C.rosePale}55 0%, transparent 50%),
-      radial-gradient(ellipse at 10% 80%, ${C.sageLight}66 0%, transparent 45%),
-      radial-gradient(ellipse at 50% 50%, ${C.mint}33 0%, transparent 60%),
-      ${C.cream};
-    display: flex; align-items: center; justify-content: center;
-    text-align: center;
-    padding: 8rem 2rem 6rem;
-    position: relative; overflow: hidden;
-  }
-  .hero-pattern {
-    position: absolute; inset: 0;
-    background-image:
-      repeating-linear-gradient(
-        45deg,
-        transparent,
-        transparent 40px,
-        ${C.sageLight}18 40px,
-        ${C.sageLight}18 41px
-      ),
-      repeating-linear-gradient(
-        -45deg,
-        transparent,
-        transparent 40px,
-        ${C.sageLight}18 40px,
-        ${C.sageLight}18 41px
-      );
-    pointer-events: none;
-  }
-  .hero-inner { position: relative; z-index: 1; max-width: 820px; margin: 0 auto; }
-  .hero-eyebrow {
-    display: inline-flex; align-items: center; gap: 0.75rem;
-    font-size: 0.75rem; font-weight: 500;
-    letter-spacing: 0.2em; text-transform: uppercase;
-    color: ${C.grey};
-    margin-bottom: 2rem;
-  }
-  .hero-eyebrow-line {
-    width: 32px; height: 1px; background: ${C.rose};
-  }
-  .hero-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(3.2rem, 8vw, 6.5rem);
-    font-weight: 300;
-    color: ${C.dark};
-    line-height: 1.0;
-    margin-bottom: 0.5rem;
-    letter-spacing: -0.01em;
-  }
-  .hero-title em {
-    font-style: italic;
-    color: ${C.sageDark};
-  }
-  .hero-title-grin {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(3.2rem, 8vw, 6.5rem);
-    font-weight: 600;
-    color: ${C.rose};
-    font-style: italic;
-    letter-spacing: -0.02em;
-  }
-  .hero-sub {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(1.15rem, 2.5vw, 1.45rem);
-    font-weight: 300;
-    font-style: italic;
-    color: ${C.grey};
-    margin: 1.75rem auto 3rem;
-    max-width: 540px;
-    line-height: 1.65;
-  }
-  .hero-actions {
-    display: flex; gap: 1.25rem; justify-content: center; flex-wrap: wrap;
-  }
-  .btn-primary {
-    background: ${C.sageDark}; color: ${C.cream};
-    border: none; padding: 1rem 2.5rem;
-    font-family: 'Jost', sans-serif;
-    font-size: 0.82rem; font-weight: 500;
-    letter-spacing: 0.14em; text-transform: uppercase;
-    cursor: pointer; transition: all 0.25s;
-    border-radius: 2px;
-  }
-  .btn-primary:hover { background: ${C.sage}; transform: translateY(-2px); box-shadow: 0 8px 24px ${C.sageDark}30; }
-  .btn-outline {
-    background: transparent; color: ${C.sageDark};
-    border: 1.5px solid ${C.sageDark};
-    padding: 1rem 2.5rem;
-    font-family: 'Jost', sans-serif;
-    font-size: 0.82rem; font-weight: 500;
-    letter-spacing: 0.14em; text-transform: uppercase;
-    cursor: pointer; transition: all 0.25s;
-    border-radius: 2px;
-  }
-  .btn-outline:hover { background: ${C.sageDark}; color: ${C.cream}; transform: translateY(-2px); }
-  .hero-scroll {
-    position: absolute; bottom: 2.5rem; left: 50%; transform: translateX(-50%);
-    display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
-    color: ${C.grey}; font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase;
-    animation: float 3s ease-in-out infinite;
-    cursor: pointer;
-  }
-  .hero-scroll-line {
-    width: 1px; height: 40px; background: linear-gradient(${C.rose}, transparent);
-  }
-  @keyframes float {
-    0%, 100% { transform: translateX(-50%) translateY(0); }
-    50% { transform: translateX(-50%) translateY(6px); }
-  }
-
-  /* ── TRUST BAR ── */
-  .trust-bar {
-    background: ${C.sageDark};
-    padding: 1.4rem 2rem;
-    display: flex; justify-content: center; gap: 4rem; flex-wrap: wrap;
-  }
-  .trust-item {
-    display: flex; align-items: center; gap: 0.65rem;
-    color: ${C.sageLight}; font-size: 0.82rem;
-    font-weight: 400; letter-spacing: 0.06em;
-  }
-  .trust-dot {
-    width: 5px; height: 5px; border-radius: 50%;
-    background: ${C.rose}; flex-shrink: 0;
-  }
-
-  /* ── SECTION BASE ── */
-  .section { padding: 7rem 2rem; }
-  .section-inner { max-width: 1160px; margin: 0 auto; }
-  .section-header { text-align: center; margin-bottom: 5rem; }
-  .section-eyebrow {
-    font-size: 0.72rem; font-weight: 500;
-    letter-spacing: 0.2em; text-transform: uppercase;
-    color: ${C.rose}; margin-bottom: 1rem;
-    display: flex; align-items: center; justify-content: center; gap: 1rem;
-  }
-  .section-eyebrow::before, .section-eyebrow::after {
-    content: ''; display: block; width: 28px; height: 1px; background: ${C.rose};
-  }
-  .section-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(2.2rem, 5vw, 3.8rem);
-    font-weight: 300; color: ${C.dark};
-    line-height: 1.1; letter-spacing: -0.01em;
-  }
-  .section-title em { font-style: italic; color: ${C.sageDark}; }
-  .section-sub {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.2rem; font-style: italic; font-weight: 300;
-    color: ${C.grey}; margin-top: 1rem; line-height: 1.6;
-  }
-
-  /* ── SERVICES ── */
-  .services-bg {
-    background: ${C.cream};
-  }
-  .services-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 1.5px;
-    background: ${C.sageLight}55;
-    border: 1.5px solid ${C.sageLight}55;
-  }
-  .service-card {
-    background: ${C.white};
-    padding: 2.75rem 2.5rem;
-    transition: all 0.3s;
-    cursor: default;
-    position: relative; overflow: hidden;
-  }
-  .service-card::before {
-    content: '';
-    position: absolute; top: 0; left: 0;
-    width: 3px; height: 0;
-    background: linear-gradient(${C.rose}, ${C.mintDeep});
-    transition: height 0.4s ease;
-  }
-  .service-card:hover { background: ${C.cream}; }
-  .service-card:hover::before { height: 100%; }
-  .service-icon {
-    font-size: 1.4rem; color: ${C.gold};
-    margin-bottom: 1.25rem; display: block;
-    font-family: 'Cormorant Garamond', serif;
-  }
-  .service-name {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.55rem; font-weight: 600;
-    color: ${C.dark}; margin-bottom: 0.3rem; line-height: 1.2;
-  }
-  .service-tagline {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 0.95rem; font-style: italic;
-    color: ${C.rose}; margin-bottom: 1rem;
-  }
-  .service-desc {
-    font-size: 0.9rem; line-height: 1.7;
-    color: ${C.grey}; margin-bottom: 1.75rem; font-weight: 300;
-  }
-  .service-footer {
-    display: flex; align-items: flex-end; justify-content: space-between;
-    border-top: 1px solid ${C.greyLight}; padding-top: 1.25rem;
-    gap: 1rem;
-  }
-  .service-price {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.3rem; font-weight: 600; color: ${C.sageDark};
-  }
-  .service-detail {
-    font-size: 0.74rem; color: ${C.grey};
-    letter-spacing: 0.05em; text-align: right; line-height: 1.4;
-  }
-
-  /* ── QUOTE BAND ── */
-  .quote-band {
-    background: linear-gradient(135deg, ${C.sageDark} 0%, ${C.darkMid} 100%);
-    padding: 6rem 2rem;
-    text-align: center; position: relative; overflow: hidden;
-  }
-  .quote-band::before {
-    content: '❧';
-    position: absolute; top: -1rem; left: 50%; transform: translateX(-50%);
-    font-size: 8rem; color: ${C.sageLight}10;
-    font-family: 'Cormorant Garamond', serif;
-    pointer-events: none;
-  }
-  .quote-band-text {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(1.6rem, 4vw, 2.8rem);
-    font-weight: 300; font-style: italic;
-    color: ${C.cream}; max-width: 780px; margin: 0 auto;
-    line-height: 1.4; position: relative; z-index: 1;
-  }
-  .quote-band-text em { color: ${C.rose}; font-style: normal; }
-  .quote-band-attr {
-    font-size: 0.78rem; letter-spacing: 0.15em; text-transform: uppercase;
-    color: ${C.sageLight}80; margin-top: 1.75rem;
-  }
-
-  /* ── TEAM ── */
-  .team-bg { background: ${C.parchment}; }
-  .team-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 2rem;
-  }
-  .team-card {
-    background: ${C.white};
-    border: 1px solid ${C.sageLight}66;
-    border-radius: 2px;
-    padding: 2.5rem 2rem;
-    text-align: center;
-    transition: all 0.3s;
-    position: relative; overflow: hidden;
-  }
-  .team-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 16px 40px ${C.sageDark}12;
-    border-color: ${C.sageLight};
-  }
-  .team-avatar {
-    width: 80px; height: 80px; border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.6rem; font-weight: 600; color: ${C.white};
-    margin: 0 auto 1.5rem;
-    position: relative;
-  }
-  .team-avatar-ring {
-    position: absolute; inset: -4px; border-radius: 50%;
-    border: 1px solid; opacity: 0.3;
-  }
-  .team-name {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.35rem; font-weight: 600; color: ${C.dark};
-    margin-bottom: 0.2rem;
-  }
-  .team-role {
-    font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase;
-    color: ${C.grey}; margin-bottom: 1.25rem;
-  }
-  .team-quote {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1rem; font-style: italic; font-weight: 300;
-    color: ${C.grey}; line-height: 1.55;
-  }
-  .team-quote::before { content: '"'; color: ${C.rose}; }
-  .team-quote::after  { content: '"'; color: ${C.rose}; }
-
-  /* ── PROCESS ── */
-  .process-bg { background: ${C.mint}22; }
-  .process-steps {
-    display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 0; position: relative;
-  }
-  .process-step {
-    padding: 3rem 2rem; text-align: center; position: relative;
-  }
-  .process-step:not(:last-child)::after {
-    content: '→';
-    position: absolute; right: -0.5rem; top: 50%;
-    transform: translateY(-50%);
-    color: ${C.sageLight}; font-size: 1.5rem;
-    display: none;
-  }
-  .process-num {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 3.5rem; font-weight: 300;
-    color: ${C.sageLight}; line-height: 1;
-    margin-bottom: 1rem;
-  }
-  .process-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.3rem; font-weight: 600; color: ${C.dark};
-    margin-bottom: 0.65rem;
-  }
-  .process-desc {
-    font-size: 0.88rem; color: ${C.grey}; line-height: 1.65; font-weight: 300;
-  }
-  .process-icon {
-    font-size: 2rem; margin-bottom: 1rem;
-  }
-
-  /* ── TESTIMONIALS ── */
-  .testi-bg { background: ${C.cream}; }
-  .testi-grid {
-    display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-  }
-  .testi-card {
-    border: 1px solid ${C.sageLight}66;
-    padding: 2.5rem;
-    position: relative; background: ${C.white};
-  }
-  .testi-glyph {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 5rem; font-weight: 300;
-    color: ${C.rosePale}; line-height: 0.8;
-    margin-bottom: 0.5rem;
-    display: block;
-  }
-  .testi-text {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.1rem; font-weight: 300; font-style: italic;
-    color: ${C.dark}; line-height: 1.65; margin-bottom: 1.75rem;
-  }
-  .testi-stars { color: ${C.gold}; letter-spacing: 0.1em; font-size: 0.85rem; margin-bottom: 1rem; }
-  .testi-author { font-size: 0.88rem; font-weight: 500; color: ${C.sageDark}; }
-  .testi-area  { font-size: 0.78rem; color: ${C.grey}; margin-top: 0.2rem; }
-
-  /* ── CONTACT ── */
-  .contact-bg {
-    background: linear-gradient(170deg, ${C.parchment} 0%, ${C.rosePale}44 100%);
-  }
-  .contact-grid {
-    display: grid; grid-template-columns: 1fr 1fr; gap: 5rem;
-    align-items: start;
-  }
-  .contact-info-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 2.5rem; font-weight: 300; color: ${C.dark};
-    line-height: 1.2; margin-bottom: 1.5rem;
-  }
-  .contact-info-title em { font-style: italic; color: ${C.sageDark}; }
-  .contact-info-sub {
-    font-size: 0.95rem; line-height: 1.75;
-    color: ${C.grey}; margin-bottom: 2.5rem; font-weight: 300;
-  }
-  .contact-detail {
-    display: flex; align-items: flex-start; gap: 1rem;
-    margin-bottom: 1.25rem;
-  }
-  .contact-detail-icon {
-    width: 36px; height: 36px; border-radius: 50%;
-    background: ${C.sageLight};
-    display: flex; align-items: center; justify-content: center;
-    font-size: 0.9rem; flex-shrink: 0;
-  }
-  .contact-detail-text { font-size: 0.9rem; color: ${C.grey}; line-height: 1.5; }
-  .contact-detail-text strong { color: ${C.dark}; font-weight: 500; display: block; }
-  .contact-form { display: flex; flex-direction: column; gap: 1.25rem; }
-  .form-group { display: flex; flex-direction: column; gap: 0.5rem; }
-  .form-label {
-    font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase;
-    color: ${C.grey}; font-weight: 500;
-  }
-  .form-input {
-    border: 1px solid ${C.sageLight};
-    background: ${C.white}; color: ${C.dark};
-    padding: 0.85rem 1rem; font-family: 'Jost', sans-serif;
-    font-size: 0.9rem; outline: none; transition: border-color 0.2s;
-    border-radius: 2px;
-  }
-  .form-input:focus { border-color: ${C.mintDeep}; }
-  .form-select {
-    border: 1px solid ${C.sageLight};
-    background: ${C.white}; color: ${C.dark};
-    padding: 0.85rem 1rem; font-family: 'Jost', sans-serif;
-    font-size: 0.9rem; outline: none; transition: border-color 0.2s;
-    border-radius: 2px; appearance: none;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%237A8C84' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");
-    background-repeat: no-repeat; background-position: right 1rem center;
-  }
-  .form-textarea {
-    border: 1px solid ${C.sageLight};
-    background: ${C.white}; color: ${C.dark};
-    padding: 0.85rem 1rem; font-family: 'Jost', sans-serif;
-    font-size: 0.9rem; outline: none; transition: border-color 0.2s;
-    border-radius: 2px; resize: vertical; min-height: 120px; line-height: 1.6;
-  }
-  .form-textarea:focus { border-color: ${C.mintDeep}; }
-
-  /* ── FOOTER ── */
-  .footer {
-    background: ${C.dark};
-    padding: 5rem 2rem 2.5rem;
-  }
-  .footer-inner {
-    max-width: 1160px; margin: 0 auto;
-    display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 4rem;
-    border-bottom: 1px solid rgba(255,255,255,0.08);
-    padding-bottom: 3.5rem; margin-bottom: 2.5rem;
-  }
-  .footer-logo {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.6rem; font-weight: 600; color: ${C.sageLight};
-    margin-bottom: 1rem; display: block;
-  }
-  .footer-logo-grin { color: ${C.rose}; font-style: italic; }
-  .footer-brand-text {
-    font-size: 0.88rem; color: rgba(255,255,255,0.4);
-    line-height: 1.75; font-weight: 300; max-width: 280px;
-  }
-  .footer-col-title {
-    font-size: 0.7rem; letter-spacing: 0.18em; text-transform: uppercase;
-    color: rgba(255,255,255,0.3); margin-bottom: 1.5rem; font-weight: 500;
-  }
-  .footer-link {
-    display: block; font-size: 0.88rem;
-    color: rgba(255,255,255,0.5); margin-bottom: 0.75rem;
-    cursor: pointer; transition: color 0.2s;
-    background: none; border: none; text-align: left;
-    font-family: 'Jost', sans-serif;
-  }
-  .footer-link:hover { color: ${C.sageLight}; }
-  .footer-bottom {
-    max-width: 1160px; margin: 0 auto;
-    display: flex; justify-content: space-between; align-items: center;
-    font-size: 0.78rem; color: rgba(255,255,255,0.25);
-  }
-  .footer-bottom-quote {
-    font-family: 'Cormorant Garamond', serif;
-    font-style: italic; font-size: 0.9rem; color: rgba(255,255,255,0.2);
-  }
-
-  /* ── CHESHIRE GRIN DECORATION ── */
-  .grin-divider {
-    text-align: center; padding: 1.5rem 0;
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.2rem; color: ${C.sageLight}66;
-    letter-spacing: 0.5em;
-  }
-
-  /* ── CONTACT FORM SUCCESS ── */
-  .form-success {
-    text-align: center; padding: 3rem 2rem;
-    background: ${C.sageLight}33; border: 1px solid ${C.sageLight};
-    border-radius: 2px;
-  }
-  .form-success-icon { font-size: 2.5rem; margin-bottom: 1rem; }
-  .form-success-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.8rem; font-weight: 300; color: ${C.sageDark}; margin-bottom: 0.5rem;
-  }
-  .form-success-sub { font-size: 0.9rem; color: ${C.grey}; }
-
-  /* ── RESPONSIVE ── */
-  @media (max-width: 768px) {
-    .nav { padding: 0 1.25rem; }
-    .nav-links { display: none; }
-    .hero { padding: 6rem 1.5rem 4rem; }
-    .trust-bar { gap: 1.5rem; }
-    .section { padding: 5rem 1.25rem; }
-    .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
-    .footer-inner { grid-template-columns: 1fr; gap: 2.5rem; }
-    .footer-bottom { flex-direction: column; gap: 0.75rem; text-align: center; }
-    .process-steps { grid-template-columns: 1fr; }
-  }
-`;
-
 // ── COMPONENTS ──
 
 function Nav({ scrollTo }) {
@@ -783,8 +198,8 @@ function Hero({ scrollTo }) {
         </div>
       </div>
 
-      <div className="hero-scroll" onClick={() => scrollTo("trust")}>
-        <span className="hero-scroll-line" />
+      <div className="hero-scroll" onClick={() => scrollTo("trust")} role="button" aria-label="Scroll down">
+        <span className="hero-scroll-line" aria-hidden="true" />
         scroll
       </div>
     </section>
@@ -803,7 +218,7 @@ function TrustBar() {
     <div className="trust-bar" id="trust">
       {items.map((item) => (
         <div className="trust-item" key={item}>
-          <span className="trust-dot" />
+          <span className="trust-dot" aria-hidden="true" />
           {item}
         </div>
       ))}
@@ -828,7 +243,7 @@ function Services() {
         <div className="services-grid">
           {SERVICES.map((s) => (
             <div className="service-card" key={s.name}>
-              <span className="service-icon">{s.icon}</span>
+              <span className="service-icon" aria-hidden="true">{s.icon}</span>
               <div className="service-name">{s.name}</div>
               <div className="service-tagline">{s.tagline}</div>
               <p className="service-desc">{s.desc}</p>
@@ -936,9 +351,9 @@ function Testimonials() {
           </h2>
         </div>
         <div className="testi-grid">
-          {TESTIMONIALS.map((t, i) => (
-            <div className="testi-card" key={i}>
-              <span className="testi-glyph">"</span>
+          {TESTIMONIALS.map((t) => (
+            <div className="testi-card" key={t.author}>
+              <span className="testi-glyph" aria-hidden="true">"</span>
               <p className="testi-text">{t.text}</p>
               <div className="testi-stars">{"★".repeat(t.stars)}</div>
               <div className="testi-author">{t.author}</div>
@@ -975,7 +390,7 @@ function Contact() {
             </p>
 
             {[
-              { icon: "✉", label: "Email", value: "hello@wonderlawn.co.za" },
+              { icon: "✉", label: "Email", value: "hello@wonderlawn.com" },
               { icon: "☎", label: "Phone", value: "+27 21 000 0000" },
               { icon: "⌂", label: "Studio", value: "Newlands, Cape Town" },
               { icon: "◷", label: "Hours", value: "Mon–Fri 8am–5pm · Sat 9am–1pm" },
@@ -1085,7 +500,6 @@ export default function WonderLawn() {
 
   return (
     <>
-      <style>{CSS}</style>
       <Nav scrollTo={scrollTo} />
       <Hero scrollTo={scrollTo} />
       <TrustBar />

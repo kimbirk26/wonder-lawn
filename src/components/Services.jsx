@@ -2,7 +2,7 @@ import { SERVICES } from '../data'
 import { SuitIcon, suitAt } from './SuitIcon'
 import { useHarlequin } from '../useHarlequin'
 
-const CARD_TYPES = ['neutral', 'botanical', 'neutral', 'accent']
+const CARD_TYPES = ['neutral', 'botanical', 'accent']
 
 export default function Services() {
   const sectionRef = useHarlequin()
@@ -22,7 +22,7 @@ export default function Services() {
 
         <div className="services-grid">
           {SERVICES.map((s, i) => (
-            <div key={s.name} className={`service-card service-card--${CARD_TYPES[i % 4]}`}>
+            <div key={s.name} className={`service-card service-card--${CARD_TYPES[i % 3]}`}>
               <div className="service-card-bar" />
               <span className="service-icon">
                 <SuitIcon suit={suitAt(i)} size={26} />

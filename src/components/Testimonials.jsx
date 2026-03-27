@@ -1,10 +1,12 @@
 import { TESTIMONIALS } from '../data'
+import { useHarlequin } from '../useHarlequin'
 
 export default function Testimonials() {
   const stars = (n) => '★'.repeat(n)
+  const sectionRef = useHarlequin()
 
   return (
-    <section className="section" id="testimonials">
+    <section ref={sectionRef} className="section" id="testimonials">
       <div className="section-inner">
         <div className="section-header">
           <p className="section-eyebrow">Client Stories</p>

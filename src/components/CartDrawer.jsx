@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router-dom'
 import { useCart } from '../CartContext'
 import { useAuth } from '../AuthContext'
+import { SuitIcon } from './SuitIcon'
 
 const WA = '27637931439'
 
@@ -47,7 +48,7 @@ export default function CartDrawer({ open, onClose }) {
 
         {items.length === 0 ? (
           <div className="cart-empty">
-            <span className="cart-empty-glyph">❧</span>
+            <SuitIcon suit="heart" size={36} className="cart-empty-heart" />
             <p>Your basket is empty.</p>
           </div>
         ) : (

@@ -1,5 +1,5 @@
 import { useParams, Link } from 'react-router-dom'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { STORIES } from '../data'
 import { usePageMeta } from '../usePageMeta'
 
@@ -30,6 +30,13 @@ export default function StoryPage() {
     </main>
   )
 
+  const [slideIdx, setSlideIdx] = useState(0)
+  useEffect(() => {
+    if (!story.gallery?.length) return
+    const t = setInterval(() => setSlideIdx(i => (i + 1) % story.gallery.length), 4000)
+    return () => clearInterval(t)
+  }, [story.gallery])
+
   const paragraphs = story.content.split('\n\n').filter(p => p.trim())
 
   return (
@@ -57,12 +64,24 @@ export default function StoryPage() {
         </div>
       </div>
 
-      {/* Hero image — full width, or small specimen card */}
-      {story.image && story.imageStyle !== 'specimen' && (
+      {/* Hero image — slideshow if gallery, otherwise single image */}
+      {story.gallery?.length > 0 ? (
+        <div className="story-img-wrap story-img-slideshow">
+          {story.gallery.map((src, i) => (
+            <img
+              key={src}
+              src={src}
+              alt={story.galleryAlts?.[i] || story.title}
+              className={`story-slide-img${i === slideIdx ? ' active' : ''}`}
+              loading={i === 0 ? 'eager' : 'lazy'}
+            />
+          ))}
+        </div>
+      ) : story.image && story.imageStyle !== 'specimen' ? (
         <div className="story-img-wrap">
           <img src={story.image} alt={story.imageAlt || story.title} className="story-img" loading="lazy" />
         </div>
-      )}
+      ) : null}
 
       {/* Article body */}
       <div className="story-body">

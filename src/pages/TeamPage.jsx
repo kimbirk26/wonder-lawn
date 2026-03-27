@@ -10,7 +10,7 @@ export default function TeamPage() {
   useEffect(() => { window.scrollTo(0, 0) }, [])
 
   return (
-    <main style={{ paddingTop: '72px' }}>
+    <main className="team-page" style={{ paddingTop: '64px' }}>
       <Team />
     </main>
   )

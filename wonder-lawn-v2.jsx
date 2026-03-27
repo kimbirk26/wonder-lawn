@@ -262,14 +262,17 @@ const CSS = `
     color: ${C.grey}; max-width: 580px; margin: 0 auto 3rem;
     line-height: 1.7;
   }
+  
+  
   .hero-actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
   .btn-primary {
     background: ${C.blueDeep}; color: ${C.parchment};
     border: none; padding: 1rem 2.75rem;
     font-family: 'Inter', sans-serif;
     font-size: 0.8rem; font-weight: 500;
-    letter-spacing: 0.14em; text-transform: uppercase;
+    letter-spacing: 0.06em;
     cursor: pointer; transition: all 0.25s;
+     text-transform: none;   /* important */
   }
   .btn-primary:hover { background: ${C.blueMid}; transform: translateY(-2px); box-shadow: 0 10px 28px ${C.blueDeep}30; }
   .btn-outline {
@@ -896,7 +899,7 @@ function Contact() {
               we'll help you find the way through.
             </p>
             {[
-              { icon: "✉", label: "Email", value: "hello@wonderlawn.co.za" },
+              { icon: "✉", label: "Email", value: "kimbirkdev@gmail.com" },
               { icon: "☎", label: "Phone", value: "+27 21 000 0000" },
               { icon: "⌂", label: "Studio", value: "Newlands, Cape Town" },
               { icon: "◷", label: "Hours", value: "Mon–Fri 8am–5pm · Sat 9am–1pm" },

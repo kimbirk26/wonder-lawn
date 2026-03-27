@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 import { STORIES } from '../data'
 import { usePageMeta } from '../usePageMeta'
 import { Link } from 'react-router-dom'
+import { SuitIcon, CheshireIcon } from '../components/SuitIcon'
 
 const CARD_TYPES = ['neutral', 'botanical', 'neutral', 'accent']
 
@@ -17,7 +18,7 @@ const CATEGORY_COLORS = {
 export default function StoriesPage() {
   usePageMeta(
     'Stories & Garden Wisdom | Wonder Lawn Cape Town',
-    'Garden stories, seasonal planting advice and design ideas from the Wonder Lawn team — written by the people who tend, design and dream in gardens every day.'
+    'Design ideas from the Wonder Lawn team — written by the people who tend, design and dream in gardens every day.'
   )
   useEffect(() => { window.scrollTo(0, 0) }, [])
 
@@ -29,22 +30,21 @@ export default function StoriesPage() {
 
       {/* Page hero */}
       <div className="stories-hero">
-        <div className="hero-glow-1" style={{ opacity: 0.35 }} />
-        <div className="hero-glow-2" style={{ opacity: 0.25 }} />
-        <div className="hero-pattern" />
-        <img src="/stories/story.webp" alt="" aria-hidden="true" className="stories-hero-illustration" loading="lazy" />
-        <div className="stories-hero-inner">
-          <div className="hero-eyebrow">
-            <span className="hero-eyebrow-line" />
-            From the Garden
-            <span className="hero-eyebrow-line" />
+        <div className="stories-hero-card">
+          <CheshireIcon size={16} className="card-corner-tl" />
+          <CheshireIcon size={16} className="card-corner-br" />
+          <div className="stories-hero-card-body">
+            <div className="hero-eyebrow" style={{ justifyContent: 'flex-start', marginBottom: '1.25rem' }}>
+              <span className="hero-eyebrow-line" style={{ maxWidth: '2rem' }} />
+              From the Garden
+            </div>
+            <h1 className="stories-hero-title">
+              Observations and Ideas
+            </h1>
+            <p className="stories-hero-sub">
+              Observations from the ground up — written by the people who tend, design, and dream in gardens every day.
+            </p>
           </div>
-          <h1 className="stories-hero-title">
-            Stories, ideas &<br /><em>garden wisdom</em>
-          </h1>
-          <p className="stories-hero-sub">
-            Observations from the ground up — written by the people who tend, design, and dream in gardens every day.
-          </p>
         </div>
       </div>
 
@@ -80,7 +80,7 @@ export default function StoriesPage() {
           {/* Divider */}
           <div className="stories-divider">
             <span className="stories-divider-line" />
-            <span className="stories-divider-glyph">❧</span>
+            <SuitIcon suit="heart" size={14} className="stories-divider-heart" />
             <span className="stories-divider-line" />
           </div>
 

@@ -1,25 +1,25 @@
-import { useState, useEffect, useRef, Fragment } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { useNavigate, useLocation, Link } from 'react-router-dom'
-import { SuitIcon, suitAt } from './SuitIcon'
+import { CrownIcon, CheshireIcon } from './SuitIcon'
 import { useCart } from '../CartContext'
 import { useAuth } from '../AuthContext'
+import { SHOP_CATEGORIES, SERVICES } from '../data'
 
-const NAV_LINKS = [
-  { label: 'Services',  href: '#services' },
-  { label: 'Our Team',  href: '/team' },
-  { label: 'Process',   href: '#process' },
-  { label: 'Stories',   href: '/stories' },
-  { label: 'Shop',      href: '/shop' },
+const PLANT_ITEMS = [
+  { key: 'all', label: 'All Plants', href: '/shop?category=all' },
+  ...SHOP_CATEGORIES.map(cat => ({
+    key: cat.key,
+    label: cat.label,
+    href: `/shop?category=${cat.key}`,
+  })),
 ]
 
-function SuitSeparator({ index }) {
-  const suit = suitAt(index)
-  return (
-    <span className={`suit-sep suit-sep--${suit}`} aria-hidden="true">
-      <SuitIcon suit={suit} size={9} />
-    </span>
-  )
-}
+const SERVICE_ITEMS = SERVICES.map(svc => ({
+  key: svc.name,
+  label: svc.name,
+  sub: svc.tagline,
+  href: '#contact',
+}))
 
 function AccountDropdown({ user, signOut, onClose }) {
   return (
@@ -45,7 +45,10 @@ export default function Navbar({ theme, setTheme, onCartOpen }) {
   const [scrolled, setScrolled]       = useState(false)
   const [menuOpen, setMenuOpen]       = useState(false)
   const [accountOpen, setAccountOpen] = useState(false)
+  const [openDropdown, setOpenDropdown] = useState(null)   // 'plants' | 'services' | null
+  const [mobileOpen, setMobileOpen]   = useState(null)    // 'plants' | 'services' | null (mobile accordion)
   const accountRef = useRef(null)
+  const navRef     = useRef(null)
   const navigate   = useNavigate()
   const location   = useLocation()
   const onHome     = location.pathname === '/'
@@ -56,9 +59,11 @@ export default function Navbar({ theme, setTheme, onCartOpen }) {
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
+  // Close dropdowns when clicking outside the nav
   useEffect(() => {
     const handler = (e) => {
-      if (accountRef.current && !accountRef.current.contains(e.target)) {
+      if (navRef.current && !navRef.current.contains(e.target)) {
+        setOpenDropdown(null)
         setAccountOpen(false)
       }
     }
@@ -66,8 +71,17 @@ export default function Navbar({ theme, setTheme, onCartOpen }) {
     return () => document.removeEventListener('mousedown', handler)
   }, [])
 
-  const handleLink = (href) => {
+  // Close dropdowns on route change
+  useEffect(() => {
+    setOpenDropdown(null)
     setMenuOpen(false)
+    setMobileOpen(null)
+  }, [location.pathname, location.search])
+
+  const handleLink = (href) => {
+    setOpenDropdown(null)
+    setMenuOpen(false)
+    setMobileOpen(null)
     if (href.startsWith('/')) {
       navigate(href)
       return
@@ -85,49 +99,94 @@ export default function Navbar({ theme, setTheme, onCartOpen }) {
     else navigate('/')
   }
 
-  const initial = user ? (user.email?.[0] || '?').toUpperCase() : null
+  const toggleDropdown = (key) => setOpenDropdown(prev => prev === key ? null : key)
+  const toggleMobile   = (key) => setMobileOpen(prev => prev === key ? null : key)
 
   return (
     <>
-      <nav className="nav" style={scrolled ? { boxShadow: '0 2px 20px rgba(0,0,0,0.07)' } : {}}>
+      <nav ref={navRef} className={`nav${onHome && !scrolled ? ' nav--merged' : ''}`}>
         <button className="nav-logo" onClick={goHome}>
-          Wonder Lawn&nbsp;<span className="nav-logo-grin">:)</span>
+          Wonder Lawn&nbsp;<CheshireIcon size={22} className="nav-logo-grin" />
         </button>
 
         <div className="nav-links">
-          {NAV_LINKS.map((l, i) => (
-            <Fragment key={l.label}>
-              <button className="nav-link" onClick={() => handleLink(l.href)}>
-                {l.label}
-              </button>
-              {i < NAV_LINKS.length - 1 && <SuitSeparator index={i} />}
-            </Fragment>
-          ))}
 
-          <div className="theme-toggle">
+          {/* Shop Plants dropdown — hover opens, click navigates */}
+          <div
+            className="nav-dropdown-wrap"
+            onMouseEnter={() => setOpenDropdown('plants')}
+            onMouseLeave={() => setOpenDropdown(null)}
+          >
             <button
-              className={`theme-btn${theme === 'green' ? ' active' : ''}`}
-              onClick={() => setTheme('green')}
+              className={`nav-link nav-dropdown-trigger${openDropdown === 'plants' ? ' nav-link--open' : ''}`}
+              onClick={() => handleLink('/shop')}
             >
-              Garden
+              Shop Plants
+              <svg className="nav-dropdown-caret" viewBox="0 0 10 6" width="10" height="6" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true">
+                <path d="M1 1l4 4 4-4" />
+              </svg>
             </button>
-            <button
-              className={`theme-btn${theme === 'blue' ? ' active' : ''}`}
-              onClick={() => setTheme('blue')}
-            >
-              Parchment
-            </button>
+            {openDropdown === 'plants' && (
+              <div className="nav-dropdown" role="listbox">
+                {PLANT_ITEMS.map(item => (
+                  <button
+                    key={item.key}
+                    className="nav-dropdown-item"
+                    onClick={() => handleLink(item.href)}
+                  >
+                    {item.label}
+                  </button>
+                ))}
+              </div>
+            )}
           </div>
 
+          {/* Shop Services dropdown — hover opens, click navigates */}
+          <div
+            className="nav-dropdown-wrap"
+            onMouseEnter={() => setOpenDropdown('services')}
+            onMouseLeave={() => setOpenDropdown(null)}
+          >
+            <button
+              className={`nav-link nav-dropdown-trigger${openDropdown === 'services' ? ' nav-link--open' : ''}`}
+              onClick={() => handleLink('#contact')}
+            >
+              Shop Services
+              <svg className="nav-dropdown-caret" viewBox="0 0 10 6" width="10" height="6" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true">
+                <path d="M1 1l4 4 4-4" />
+              </svg>
+            </button>
+            {openDropdown === 'services' && (
+              <div className="nav-dropdown nav-dropdown--services" role="listbox">
+                {SERVICE_ITEMS.map(item => (
+                  <button
+                    key={item.key}
+                    className="nav-dropdown-item nav-dropdown-item--has-sub"
+                    onClick={() => handleLink(item.href)}
+                  >
+                    <span className="nav-dropdown-item-label">{item.label}</span>
+                    <span className="nav-dropdown-item-sub">{item.sub}</span>
+                  </button>
+                ))}
+              </div>
+            )}
+          </div>
+
+          <button className="nav-link" onClick={() => handleLink('/garden')}>
+            Down the Path
+          </button>
+
+          {/* Cart */}
           <button className="nav-cart" onClick={onCartOpen} aria-label="Open cart">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" width="20" height="20" aria-hidden="true">
-              <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/>
-              <line x1="3" y1="6" x2="21" y2="6"/>
-              <path d="M16 10a4 4 0 01-8 0"/>
+              <path d="M1 1h4l2.68 13.39a2 2 0 001.99 1.61h9.72a2 2 0 001.99-1.61L23 6H6"/>
+              <circle cx="9" cy="21" r="1" fill="currentColor" stroke="none"/>
+              <circle cx="20" cy="21" r="1" fill="currentColor" stroke="none"/>
             </svg>
             {totalItems > 0 && <span className="nav-cart-badge">{totalItems}</span>}
           </button>
 
+          {/* Account */}
           {user ? (
             <div className="nav-account" ref={accountRef}>
               <button
@@ -136,7 +195,7 @@ export default function Navbar({ theme, setTheme, onCartOpen }) {
                 aria-label="Account menu"
                 aria-expanded={accountOpen}
               >
-                <span className="nav-account-initial">{initial}</span>
+                <CrownIcon size={18} className="nav-account-crown" />
               </button>
               {accountOpen && (
                 <AccountDropdown
@@ -147,14 +206,10 @@ export default function Navbar({ theme, setTheme, onCartOpen }) {
               )}
             </div>
           ) : (
-            <button className="nav-link nav-signin" onClick={() => navigate('/login')}>
-              Sign in
+            <button className="nav-signin" onClick={() => navigate('/login')} aria-label="Sign in">
+              <img src="/key.svg" alt="" aria-hidden="true" className="nav-signin-keyhole" />
             </button>
           )}
-
-          <button className="nav-cta" onClick={() => handleLink('#contact')}>
-            Begin Your Garden
-          </button>
         </div>
 
         <button
@@ -166,12 +221,60 @@ export default function Navbar({ theme, setTheme, onCartOpen }) {
         </button>
       </nav>
 
+      {/* Mobile menu */}
       <div className={`mobile-menu${menuOpen ? ' open' : ''}`}>
-        {NAV_LINKS.map(l => (
-          <button key={l.label} className="mobile-nav-link" onClick={() => handleLink(l.href)}>
-            {l.label}
+        <button className="mobile-nav-rabbit" onClick={() => handleLink('/quotes')}>
+          <img src="/rabbitblue.png" alt="Follow the rabbit" />
+        </button>
+
+        {/* Mobile: Shop Plants accordion */}
+        <div className="mobile-nav-group">
+          <button
+            className="mobile-nav-link mobile-nav-group-trigger"
+            onClick={() => toggleMobile('plants')}
+          >
+            Shop Plants
+            <svg className={`mobile-nav-caret${mobileOpen === 'plants' ? ' open' : ''}`} viewBox="0 0 10 6" width="10" height="6" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true">
+              <path d="M1 1l4 4 4-4" />
+            </svg>
           </button>
-        ))}
+          {mobileOpen === 'plants' && (
+            <div className="mobile-nav-group-items">
+              {PLANT_ITEMS.map(item => (
+                <button key={item.key} className="mobile-nav-sub-link" onClick={() => handleLink(item.href)}>
+                  {item.label}
+                </button>
+              ))}
+            </div>
+          )}
+        </div>
+
+        {/* Mobile: Shop Services accordion */}
+        <div className="mobile-nav-group">
+          <button
+            className="mobile-nav-link mobile-nav-group-trigger"
+            onClick={() => toggleMobile('services')}
+          >
+            Shop Services
+            <svg className={`mobile-nav-caret${mobileOpen === 'services' ? ' open' : ''}`} viewBox="0 0 10 6" width="10" height="6" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true">
+              <path d="M1 1l4 4 4-4" />
+            </svg>
+          </button>
+          {mobileOpen === 'services' && (
+            <div className="mobile-nav-group-items">
+              {SERVICE_ITEMS.map(item => (
+                <button key={item.key} className="mobile-nav-sub-link" onClick={() => handleLink(item.href)}>
+                  {item.label}
+                </button>
+              ))}
+            </div>
+          )}
+        </div>
+
+        <button className="mobile-nav-link" onClick={() => handleLink('/garden')}>
+          Down the Path
+        </button>
+
         {user ? (
           <>
             <button className="mobile-nav-link" onClick={() => { navigate('/account'); setMenuOpen(false) }}>
@@ -186,23 +289,6 @@ export default function Navbar({ theme, setTheme, onCartOpen }) {
             Sign in
           </button>
         )}
-        <div className="theme-toggle" style={{ alignSelf: 'flex-start' }}>
-          <button
-            className={`theme-btn${theme === 'green' ? ' active' : ''}`}
-            onClick={() => setTheme('green')}
-          >
-            Garden
-          </button>
-          <button
-            className={`theme-btn${theme === 'blue' ? ' active' : ''}`}
-            onClick={() => setTheme('blue')}
-          >
-            Parchment
-          </button>
-        </div>
-        <button className="nav-cta" onClick={() => handleLink('#contact')}>
-          Begin Your Garden
-        </button>
       </div>
     </>
   )

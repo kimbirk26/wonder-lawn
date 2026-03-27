@@ -145,6 +145,13 @@ export default function CheckoutPage() {
 
               {error && <p className="checkout-error">{error}</p>}
 
+              <p className="checkout-terms">
+                By paying you agree to our{' '}
+                <a href="/terms" target="_blank" rel="noopener noreferrer">Terms &amp; Conditions</a>
+                {' '}and{' '}
+                <a href="/privacy" target="_blank" rel="noopener noreferrer">Privacy Policy</a>.
+              </p>
+
               <button
                 type="submit"
                 className="btn-primary checkout-pay-btn"

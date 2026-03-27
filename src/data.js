@@ -75,15 +75,15 @@ export const TEAM = [
         "Everyone is welcomed.",
     initials: "PM",
     bg: "#B5637A",
-    photo: "/Phelo.webp",
+    photo: "/team/Phelo.webp",
     photoPosition: "center -20%",
   },
   {
-    name: "Kim Yu",
+    name: "Kim Birk",
     role: "Co-Founder",
-    quote: "We all work together to bring the beauty of nature to our community." , initials: "KY",
+    quote: "We all work together to bring our client's vision to life and bring the beauty of nature to our community. In our company we are all equal and everyone is trusted and respected" , initials: "KY",
     bg: "#B8A8C8",
-    photo: "/kim.webp",
+    photo: "/team/kim2.png",
     photoPosition: "right top",
   },
   {
@@ -92,7 +92,7 @@ export const TEAM = [
     quote: "I plant things that make people stop and smile.",
     initials: "MN",
     bg: "#D4899A",
-    photo: "/McDonald.webp",
+    photo: "/team/McDonald.webp",
     photoPosition: "center 50%",
   },
   {
@@ -101,41 +101,36 @@ export const TEAM = [
     quote: "Water is the secret ingredient in every great garden.",
     initials: "PN",
     bg: "#6BBFB8",
+    photo: "/team/Horlain.png",
   },
   {
     name: "Dayne Alexander",
-    role: "Gardener and Artistic Director",
+    role: "Gardener and Landscape Architect",
     quote: "Every garden is a door to somewhere wonderful.",
     initials: "DA",
     bg: "#7AAE8E",
-    photo: "/Dayne.webp",
+    photo: "/team/Dayne.png",
   },
   {
-    name: "Peter Charuwa",
+    name: "Freddy Charuwa",
     role: "Topiary Designer",
     quote: "A hedge is just a poem written in green.",
     initials: "PC",
     bg: "#4A7A62",
-  },
-  {
-    name: "John Sterianos",
-    role: "Client Relations",
-    quote: "Your garden story starts with a single conversation.",
-    initials: "JS",
-    bg: "#B8A8C8",
+    photo: "/team/Freddy.webp",
   },
 ];
 
 export const TESTIMONIALS = [
 
   {
-    text: "McDonald redesigned our entire back garden with a herb and vegetable garden and a succulent rockery. The result is perfection.",
+    text: "McDonald redesigned our whole back garden, he planted out a herb garden and a vegetable garden. There's flower beds with unusual plants as well as water-wise succulents and beautiful green grass that I like to lie down and fall asleep on under the trees when it's a nice day. Perfection.",
     author: "Michael Marion",
     area: "Marina da Gama",
     stars: 5,
   },
   {
-    text: "The maintenance team is exceptional. Always on time, always thorough, always suggesting something clever. Our lawn has never looked better, my dog Havok loves it.",
+    text: "The maintenance team is exceptional. Always on time, always thorough. Our lawn has never looked better, my dog Havok loves it.",
     author: "Brian Weiner",
     area: "Muizenberg",
     stars: 5,
@@ -158,25 +153,25 @@ export const STORIES = [
     excerpt: 'Designing a garden around fragrance means treating scent as a design element — as intentional as colour, texture, or structure. A garden that smells wonderful at every hour is a garden that speaks to you even with your eyes closed.',
     date: 'March 2026',
     readTime: '4 min read',
-    author: 'Kim Yu',
+    author: 'Kim',
     featured: false,
     image: '/stories/scented1.webp',
     imageAlt: 'Fragrant flowering plants in a scented Cape Town garden — jasmine, gardenia and lavender',
     content: `A fragrance-focused garden treats scent as a design element, just like colour, texture, or structure. Instead of only thinking about how a garden looks, the designer also considers when it smells, what it smells of, and where the fragrance arrives from.
 
-The first consideration is fragrance timing. Many plants release scent at specific times of day because of pollination strategies shaped over millions of years. Morning-scented plants tend to target early bees and hoverflies. Warm afternoon scent — think lavender, rosemary, and sun-baked herbs — belongs to the height of the day. Evening fragrance is where things become particularly interesting.
+The first consideration is fragrance timing. Many plants release scent at specific times of day because of pollination strategies shaped over millions of years. Morning-scented plants tend to target early bees and hoverflies. Warm afternoon scent like lavender, rosemary, and sun-baked herbs belongs to the height of the day. Evening fragrance is where things become particularly interesting.
 
 Night-scented flowers evolved to attract moths, beetles, and nocturnal pollinators, so their fragrance intensifies precisely when those insects are most active. Nicotiana, night-blooming jasmine, Moonflower, and Cestrum nocturnum are dramatic examples — almost unscented by day, overwhelming by night. A garden designed with this in mind offers a completely different experience at dusk.
 
 The second consideration is fragrance profile. Plants have surprisingly varied scent personalities. Sweet and honeyed. Citrusy and fresh. Spicy or warm. Green and herbal. Creamy or tropical. Musky and heady. Combining plants with complementary scent notes can create something like a garden perfume composition — a fragrance that shifts gently as you move through the space, or as the day changes around you.
 
-We often work with a base of green or herbal scent — rosemary along a path, lavender at a border edge — and then layer in something sweeter or more unusual as a focal accent. A single Gardenia near a seating area, or a Rosa 'Gertrude Jekyll' trained over a doorway, becomes the note you remember.
+We often work with a base of green or herbal scent — rosemary along a path, lavender at a border edge — and then layer in something sweeter or more unusual as a focal accent. A single Gardenia near a seating area, or a jasmine trained over a doorway, becomes the note you remember.
 
 The third consideration is placement. Scent travels with air currents, so where you plant matters as much as what you plant. Fragrant plants placed along paths reward the person walking through. Plants near seating areas make sitting outside an experience rather than just a location. Planting beside windows or doors means the garden reaches indoors — morning coffee with the smell of damp jasmine drifting through.
 
 Where evening breezes carry scent across the garden, positioning night-scented plants upwind of where you spend your evenings is one of those small design decisions that makes a garden feel deeply thought about.
 
-A garden designed around scent isn't a luxury. It's a way of making the garden available to you in the dark, in the early morning before the day begins, in winter when the flowers are sparse. It extends the garden beyond what the eye can see — and that, we think, is exactly the point.`,
+A garden designed around scent isn't a luxury. It's a way of making the garden available to you in the dark, in the early morning before the day begins, in winter when the flowers are sparse. It extends the garden beyond what the eye can see.`,
   },
   {
     slug: 'the-night-garden',
@@ -185,8 +180,8 @@ A garden designed around scent isn't a luxury. It's a way of making the garden a
     excerpt: 'Some gardens are designed to be discovered after dark. White flowers that hold the moonlight. Silver foliage that glows softly. Fragrance that intensifies as the temperature drops. The night garden is a garden for a different kind of attention.',
     date: 'March 2026',
     readTime: '5 min read',
-    author: 'Kim Yu',
-    featured: true,
+    author: 'Kim',
+    featured: false,
     image: '/night-garden/bigmoth.webp',
     imageAlt: 'Large moth feeding from a white night-blooming flower in a Cape Town night garden',
     gallery: [
@@ -205,9 +200,11 @@ A garden designed around scent isn't a luxury. It's a way of making the garden a
       'Moth feeding from a night-blooming flower at dusk — Cape Town garden',
       'Large moth on white night-garden flowers — Wonder Lawn Cape Town',
     ],
-    content: `Night gardens are sometimes called moon gardens, and the name is apt. They are designed not for the noon hour or the golden afternoon, but for the particular quality of light that arrives after sunset — diffuse, silvery, without shadows where you expect them. A garden that looks unremarkable by day can become genuinely atmospheric after dark, and that transformation is entirely a matter of intention.
+    content: `Night gardens are sometimes called moon gardens and the name is apt. They are designed not for the noon hour or the golden afternoon, but for the particular quality of light that arrives after sunset, diffuse, silvery, without shadows where you expect them. A garden that looks unremarkable by day can become genuinely atmospheric after dark, and that transformation is entirely a matter of intention.
 
-The palette of a night garden starts with white. White flowers reflect available light — moonlight, ambient streetlight, a candle on the table — with a luminosity that no other colour can match. But white alone can feel cold or clinical. The more interesting version layers white with silver: the felted leaves of Stachys byzantina catching a low light, the pewter sheen of Artemisia, the ghostly glaucous blue of certain agaves and succulents. These foliage plants do not need to flower. They simply hold the light all year.
+The palette of a night garden starts with white. White flowers reflect available light — moonlight, ambient streetlight, a candle on the table — with a luminosity that no other colour can match. But white alone can feel cold or clinical. The more interesting version layers white with silver: the felted leaves of Stachys byzantina catching a low light, the pewter sheen of Artemisia, the ghostly glaucous blue of certain agaves and succulents. 
+
+These foliage plants do not need to flower. They simply hold the light all year.
 
 Then come the scent plants, placed for the evening hours when fragrance matters most. Cestrum nocturnum — night-blooming jasmine — is perhaps the most dramatic example we use in Cape Town gardens. By day it is an undistinguished shrub. At night, particularly on warm summer evenings, it releases a scent so intense it can be detected from the street. We plant it where its scent will drift toward a seating area rather than overwhelming it. Distance is part of the design.
 
@@ -226,7 +223,7 @@ A seating area where scent gathers — where jasmine climbs a nearby wall and a 
     excerpt: 'A plant palette for the Mediterranean evening garden — from powerfully scented night bloomers to moonlight-reflecting whites and the silver foliage that holds it all together.',
     date: 'March 2026',
     readTime: '6 min read',
-    author: 'Mcdonard Kamwendo',
+    author: 'Kim',
     featured: false,
     image: '/night-garden/night.webp',
     imageAlt: 'Moonlit night garden with pale flowering plants and atmospheric low lighting — Cape Town',
@@ -311,41 +308,65 @@ The reward for this kind of planting is a garden that is genuinely alive in the 
         'To use fresh aloe gel, a leaf can be cut open and the clear gel applied directly to the skin.'},
 
   {
-    slug: 'feng-shui-in-the-garden',
-    category: 'Garden Design',
-    title: 'Feng Shui 風水 in the Garden',
-    excerpt: 'Feng Shui is an ancient Chinese philosophy focused on the flow of energy through a space. Applied to the garden, its principles create places that feel naturally peaceful — where movement, water, planting, and open space combine into something that restores rather than simply decorates.',
+    slug: 'toad-house',
+    category: 'Projects',
+    title: 'How to Build a Simple Toad House from an Old Plant Pot',
+    excerpt: 'Creating a toad house is an easy and eco-friendly way to support garden wildlife — and there\'s a good chance a Western Leopard Toad might just move in.',
     date: 'March 2026',
-    readTime: '6 min read',
-    author: 'Dayne Alexander',
-    image: '/stories/frog.webp',
-    imageAlt: 'A frog resting beside a garden pond — water and wildlife in a Feng Shui Cape Town garden',
-    imageStyle: 'specimen',
-    featured: false,
-    content: `Feng Shui 風水 is an ancient Chinese philosophy that focuses on the flow of energy, known as chi, through a space\n. 
-    
-    While it is most often associated with interior design, its principles apply just as beautifully to the garden. A garden designed with Feng Shui in mind aims to create a space where natural energy moves freely, bringing balance, wellbeing, and a sense of calm that you feel before you can explain it\n.
+    readTime: '3 min read',
+    author: 'Wonder Lawn',
+    featured: true,
+    image: '/door.png',
+    imageAlt: 'Tenniel illustration of Alice and the door — Wonder Lawn garden stories',
+    gallery: [
+      '/stories/toad/a clay pot toad house.jpeg',
+      '/stories/toad/toad friendly shelter using a half-buried pot.jpeg',
+    ],
+    galleryAlts: [
+      'A clay pot turned on its side as a toad house in a garden',
+      'A toad-friendly shelter made from a half-buried plant pot',
+    ],
+    content: `Toads often choose their own hiding places—many like to live in outdoor or patio potted plants, where they burrow down into the cool soil during the day. Because of this, it’s important to take care when repotting or moving pots, as you might accidentally disturb a hidden guest.
 
-One of the central ideas is movement and flow. In the garden this is expressed through gently curving pathways, natural transitions between spaces, and the thoughtful placement of plants and features. Straight lines and hard divisions can interrupt the flow of energy; soft curves encourage the garden to feel welcoming and alive. A path that meanders slightly, that reveals the garden gradually rather than all at once, is a path that draws you through the space rather than simply pointing you across it\n\n.
+It’s also best to avoid stacking plant pots on top of each other without checking inside, since a toad could be sheltering underneath or between them.
 
-Water is another essential element.
- 
- A small pond, a fountain, or even a bird bath can symbolise abundance and vitality while also attracting wildlife. The gentle sound of moving water enhances the atmosphere of calm that Feng Shui gardens seek to create — and in practice, water features also cool the microclimate, draw birds, and give the garden a stillness beneath the movement that is deeply restful.\n\n
+Providing a dedicated toad house helps give them a safe alternative home, so they’re less likely to be disturbed in your pots.Creating a toad house is an easy and eco-friendly way to support garden wildlife. Start by taking an old clay or plastic plant pot and turning it on its side. If the pot doesn't already have a wide opening, carefully chip or cut a small doorway at the rim — just big enough for a toad to enter.
 
-Plants shape the energy of a space in multiple ways. Lush greenery represents growth and vitality. Fragrant flowers add sensory richness and emotional warmth. Carefully chosen planting creates shelter and habitat, allowing the garden to support a thriving ecosystem of birds, bees, and other pollinators. A garden that hums with life in this way is not accidental — it is designed.
+Place the pot in a cool, shaded spot in your garden, ideally near plants or a damp area. Partially bury it or surround it with soil and leaves to help it stay stable and retain moisture. You can also add a few flat stones or moss inside to create a comfortable, humid shelter.
 
-Certain plants carry particular symbolic weight in Feng Shui tradition. The jade plant (Crassula ovata), with its thick coin-shaped leaves, is perhaps the most famous prosperity plant — its ability to store water in its leaves also makes it a symbol of resilience. The money tree (Pachira aquatica) is said to lock in good fortune through its braided trunk, its five leaflets representing the five elements: wood, water, earth, fire, and metal. Bamboo represents flexibility and resilience. Citrus trees suggest abundance. Peonies are associated with romance. The lotus, rising clean from water, symbolises spiritual purity\n\n.
+Toads prefer dark, cool hiding places during the day, so keeping the area moist and undisturbed will make the house more attractive.
 
-Succulents and cacti deserve a careful note. Plants with rounded leaves, like the jade plant, Portulacaria afra are considered positive in Feng Shui because rounded forms symbolise abundance. Very spiky plants, however, are thought to produce sharp energy (sha chi), and are placed thoughtfully rather than immediately beside entrances or seating areas. This is not superstition so much as common sense: a cactus by the front door creates a different feeling to a jade plant. The philosophy simply gives language to an instinct most gardeners already have.
+🐾 Will a Leopard Toad Use It?
 
-In traditional Feng Shui practice, gardens are sometimes arranged using the Bagua map, which divides a space into areas representing aspects of life such as prosperity, health, and relationships. Prosperity plants are often sited in the southeast area of the garden or property. But the Bagua is a framework, not a formula. What matters more is balance: the thoughtful arrangement of plants, stones, water, and open space so that the garden feels grounded yet alive.
+Yes — there's a good chance a leopard toad, such as the Western Leopard Toad found in parts of South Africa, would use this kind of shelter. These toads naturally seek out cool, damp hiding spots like logs, rocks, or dense vegetation during the day.
 
-Ultimately, a Feng Shui garden is not about strict rules. It is about creating a place that feels naturally peaceful — where the proportions are right, where nothing feels crowded or sparse, where there is always something to look at and always somewhere to rest. When the energy of a space is well arranged, the garden becomes more than a collection of plants. It becomes a restorative environment where people can slow down, reconnect with nature, and experience something that is difficult to name but immediately felt.`,
+A simple plant-pot house mimics those conditions quite well. However, whether one actually moves in depends on your garden environment. If your space has water nearby, minimal disturbance, and plenty of insects, you're much more likely to attract one.
+
+🌿 Quick Tips for Success
+
+Keep the area moist but not flooded
+
+Avoid pesticides — toads are sensitive to chemicals
+
+Add nearby plants or ground cover for extra protection
+
+Be patient — wild toads come and go naturally
+
+A small project like this not only reuses old materials but also helps create a safe haven for helpful garden creatures.`,
   },
-
 
 ];
 
+
+export const SHOP_CATEGORIES = [
+  { key: 'Outdoor',          label: 'Outdoor Plants',   image: '/plants/botanical2.webp',     rowSpan: 2 },
+  { key: 'Indoor',           label: 'Indoor',           image: '/plants/gardenia.webp' },
+  { key: 'Succulents',       label: 'Succulents',       image: '/plants/succulents-trio.webp' },
+  { key: 'Herbs',            label: 'Herbs',            image: '/plants/herbs.webp',           span: 2 },
+  { key: 'Lawn',             label: 'Lawn',             image: '/plants/lawn.jpg',            span: 2 },
+  { key: 'Seedlings',        label: 'Seedlings',        image: '/plants/botanical1.webp' },
+  { key: 'plant-of-the-day', label: 'Plant of the Day', image: '/plants/magnolia.webp',        span: 3 },
+]
 
 export const PLANTS = [
 
@@ -376,14 +397,20 @@ export const PLANTS = [
     icon: '❧',
     image: '/plants/honeysuckle.webp',
     inStock: true,
+    editorial: {
+      image: '/plants/hawkmoth.png',
+      quote: 'A garden is never just plants — it is the whole world of creatures drawn to them.',
+      body: 'Each plant we select invites life. The lonicera alone draws hummingbird hawk moths, bees, and sunbirds to Cape Town gardens.',
+      caption: 'Hummingbird hawk moth on lonicera · Cape Town',
+    },
   },
   {
     id: 'gardenia',
     name: 'Gardenia',
     category: 'Outdoor',
     desc: 'Intensely fragrant white blooms against glossy dark leaves. A Cape Town garden classic.',
-    size: '30–50 cm',
-    price: 280,
+    size: '50-90 cm',
+    price: 350,
     icon: '✺',
     image: '/plants/gardenia.webp',
     inStock: true,
@@ -391,29 +418,29 @@ export const PLANTS = [
   {
     id: 'herbs',
     name: 'Herb Garden starter kit',
-    category: 'Outdoor',
+    category: 'Herbs',
     desc: 'Productive and fragrant — a potted selection of herbs, Rosemary, mint, parsley, basil, sage, and thyme.',
     size: '50–70 cm',
-    price: 420,
+    price: 450,
     icon: '✦',
     image: '/plants/herbs.webp',
     inStock: true,
   },
   {
-    id: 'lavender',
-    name: 'Lavender',
+    id: 'jasmine',
+    name: 'Star Jasmine',
     category: 'Outdoor',
     desc: 'Fragrant, pollinator-friendly and drought tolerant. Everything a Cape Town garden loves.',
-    size: '20–30 cm',
-    price: 120,
+    size: '30-60 cm',
+    price: 160,
     icon: '✿',
-    image: '/plants/lavender.jpeg',
+    image: '/plants/jasmine.jpg',
     inStock: true,
   },
   {
     id: 'aloevera',
     name: 'Aloe Vera',
-    category: 'Outdoor',
+    category: 'Succulents',
     desc: 'Aloe vera is a striking, large succulent valued for both its ornamental beauty and its well-known healing properties. Native to the Arabian Peninsula but widely cultivated in warm regions around the world, this plant forms a rosette of thick, fleshy leaves that can grow up to 60–90 cm long. The leaves are grey-green with softly serrated edges and are filled with a clear, soothing gel.\n' +
         '\n' +
         'Mature plants may produce tall flowering spikes bearing tubular yellow or orange blooms that attract pollinators such as bees and birds. Aloe vera thrives in full sun and well-drained soil, making it particularly suited to dry climates and water-wise gardens.\n' +
@@ -422,7 +449,7 @@ export const PLANTS = [
         '\n' +
         'With its sculptural form, drought tolerance, and practical uses, aloe vera is both a beautiful garden plant and a valuable addition to any home landscape..',
     size: '60–90 cm',
-    price: 290,
+    price: 350,
     icon: '✿',
     image: '/plants/aloe.jpeg',
     inStock: true,
@@ -430,10 +457,10 @@ export const PLANTS = [
   {
     id: 'succulent-trio',
     name: 'Succulent Trio',
-    category: 'Indoor / Outdoor',
+    category: 'Succulents',
     desc: 'Three curated South African succulents in a single terracotta pot. Low maintenance, high character.',
     size: 'Trio in one pot',
-    price: 220,
+    price: 290,
     icon: '❧',
     image: '/plants/succulents-trio.webp',
     inStock: true,
@@ -442,7 +469,7 @@ export const PLANTS = [
   {
     id: 'crassula',
     name: 'Crassula ovata Jade Plant',
-    category: 'Outdoor',
+    category: 'Succulents',
     desc: 'Crassula ovata, commonly known as the jade plant or money plant, is a hardy evergreen succulent native to South Africa and Mozambique. It is recognised for its thick, glossy, oval-shaped leaves that resemble small coins, which is why it is often associated with prosperity and good fortune in Feng Shui traditions.\n' +
         '\n' +
         'Jade plants are slow-growing but long-lived and can develop into small shrub-like plants over time, sometimes forming woody stems and a tree-like shape. In winter or early spring, mature plants may produce clusters of small, star-shaped white or pale pink flowers.\n' +
@@ -451,7 +478,7 @@ export const PLANTS = [
         '\n' +
         'Beyond its ornamental value, the jade plant is often appreciated as a symbol of abundance, resilience, and longevity, making it a meaningful addition to homes and gardens alike.',
     size: '20–30 cm',
-    price: 120,
+    price: 150,
     icon: '✿',
     image: '/plants/crassula.jpg',
     inStock: true,
@@ -461,7 +488,7 @@ export const PLANTS = [
   {
     id: 'lawn',
     name: 'Lawn',
-    category: 'Outdoor',
+    category: 'Lawn',
     desc: 'Roll-On Lawn (Instant Turf)\n' +
         '\n' +
         'Create a lush, green lawn almost instantly with our fresh roll-on turf. Carefully cultivated and cut into easy-to-lay pieces, this ready-grown grass allows you to transform bare soil into a beautiful, established lawn in a single day.\n' +
@@ -480,13 +507,219 @@ export const PLANTS = [
         '\n' +
         'A simple way to bring life and structure to your garden — fresh, vibrant grass ready to grow..',
     size: '60 cm',
-    price: 120,
+    price: 100,
     icon: '✿',
-    image: '/plants/grass.jpg',
+    image: '/plants/grass.png',
     inStock: true,
   },
 
+  {
+    id: 'crassula-pinetree',
+    name: 'Crassula tetragona',
+    category: 'Succulents',
+    desc: 'Crassula tetragona, commonly known as the Miniature Pine Tree or Pinetree Crassula, is a South African native succulent that earns its name from its striking resemblance to a miniature conifer. Upright, needle-like leaves grow in whorls around slender woody stems, creating a tiered, tree-like silhouette that adds architectural interest to any garden or pot arrangement.\n' +
+        '\n' +
+        'This Crassula is wonderfully low-maintenance and highly drought-tolerant, storing moisture in its fleshy leaves to survive dry periods with ease. It thrives in full sun to partial shade and prefers well-draining sandy or rocky soil — ideal for Cape Town\'s dry summers and mild winters.\n' +
+        '\n' +
+        'In late spring or early summer, clusters of small white flowers appear at the branch tips, attracting bees and adding a delicate softness to the plants otherwise structured form.\n' +
+        '\n' +
+        'Crassula tetragona works beautifully in rockeries, succulent beds, and mixed containers. Its sculptural quality makes it a favourite for creating bonsai-style arrangements or as a focal point in a water-wise garden.',
+    size: '30–60 cm',
+    price: 180,
+    icon: '✦',
+    image: '/plants/pinetree.png',
+    inStock: true,
+  },
 
+  {
+    id: 'aeonium-arboreum',
+    name: 'Aeonium Arboreum',
+    category: 'Succulents',
+    desc: 'Aeonium arboreum, known as the Tree Aeonium or Tree Houseleek, is a dramatic, branching succulent native to the Canary Islands and widely beloved in Mediterranean and South African gardens. It forms bold rosettes of glossy, spoon-shaped leaves at the tips of tall, bare stems — creating a striking silhouette that looks almost sculptural.\n' +
+        '\n' +
+        'The species comes in both the classic bright green form and the popular dark-leaved cultivar Aeonium arboreum "Atropurpureum", whose deep burgundy-black rosettes are particularly striking in full sun. In partial shade the leaves tend toward a rich wine-red.\n' +
+        '\n' +
+        'Tree Aeonium is monocarpic — individual rosettes produce a cone-shaped spike of yellow flowers once in their lifetime, after which that rosette dies, but the plant continues to grow and branch from other stems.\n' +
+        '\n' +
+        'It thrives in well-draining soil with moderate water and suits Cape Town\'s mild, wet winters and dry summers beautifully. Use it as a dramatic focal point in beds, rockeries, or large containers.',
+    size: '60–90 cm',
+    price: 220,
+    icon: '✦',
+    image: '/plants/tree.jpg',
+    inStock: true,
+  },
+
+  {
+    id: 'haworthia-zebra',
+    name: 'Haworthiopsis fasciata',
+    category: 'Succulents',
+    desc: 'Haworthiopsis fasciata, commonly known as the Zebra Plant, is a compact and charming South African succulent prized for its distinctive white horizontal bands — or tubercles — that stripe its dark green, tapering leaves. These markings give it an unmistakeable zebra-like pattern and make it one of the most visually striking small succulents available.\n' +
+        '\n' +
+        'Unlike many succulents, the Zebra Plant is surprisingly tolerant of lower light conditions, making it an excellent choice for indoor windowsills as well as sheltered outdoor spots. It prefers bright, indirect light and well-draining soil, and should be watered sparingly — allowing the soil to dry out fully between waterings.\n' +
+        '\n' +
+        'Slow-growing and compact, it rarely exceeds 15–20 cm in height, forming neat rosettes that offset freely over time to create fuller clumps. In summer, slender stems bear small tubular white or pale pink flowers.\n' +
+        '\n' +
+        'Haworthiopsis fasciata is ideal for pots, terrariums, and succulent arrangements. Its architectural texture and manageable size make it a favourite for desk plants, windowsill collections, and gift giving.',
+    size: '10–20 cm',
+    price: 120,
+    icon: '✦',
+    image: '/plants/succulent-zebra.jpg',
+    inStock: true,
+  },
+
+  {
+    id: 'aeonium-kiwi',
+    name: "Aeonium 'Kiwi'",
+    category: 'Succulents',
+    desc: "Aeonium 'Kiwi' is one of the most colourful and eye-catching succulents you can grow, producing tight rosettes of tricoloured leaves that shift from creamy yellow at the centre through soft green to rose-pink and red at the tips. The intensity of the colouring deepens in full sun and cooler temperatures, making late autumn and winter its most spectacular season.\n" +
+        '\n' +
+        "A compact, branching cultivar, 'Kiwi' grows to around 30–60 cm and produces multiple rosette-tipped stems that give it a full, bouquet-like form. Like all Aeoniums it thrives in mild, Mediterranean-style climates — cool wet winters and dry summers — which makes it perfectly suited to Cape Town gardens.\n" +
+        '\n' +
+        "It prefers well-draining soil and full sun to light shade. Water moderately during the growing season (autumn through spring) and reduce watering in summer when the plant naturally goes semi-dormant. In very hot summers, some afternoon shade will help preserve the vibrant leaf colour.\n" +
+        '\n' +
+        "Use Aeonium 'Kiwi' as a focal point in rockeries, mixed succulent beds, or large pots where its living-colour rosettes can be appreciated up close.",
+    size: '30–60 cm',
+    price: 200,
+    icon: '✦',
+    image: '/plants/kiwi.jpg',
+    inStock: true,
+  },
+
+  {
+    id: 'aeonium-black-rose',
+    name: "Aeonium arboreum 'Zwartkop'",
+    category: 'Succulents',
+    desc: "Aeonium arboreum 'Zwartkop', widely known as Black Rose, is one of the most dramatic succulents in cultivation. Its large, glossy rosettes of deep burgundy-black leaves sit atop tall, branching stems and create a striking contrast against the greens and greys of a garden bed or mixed planting.\n" +
+        '\n' +
+        "The colour is at its most intense in full sun — the more light it receives, the deeper and more lustrous the near-black becomes. In lower light the leaves shift toward a rich dark red. Like all Aeoniums it grows actively through Cape Town's cool, wet winters and naturally slows or goes semi-dormant in summer heat.\n" +
+        '\n' +
+        "In late winter or spring, mature rosettes produce tall conical spikes of small yellow flowers — a brilliant contrast to the dark foliage. After flowering, that rosette dies back, but the plant continues to branch and produce new growth from the base and remaining stems.\n" +
+        '\n' +
+        "Black Rose thrives in well-draining soil with moderate water and looks spectacular in rockeries, mixed succulent beds, and large statement pots. It is a plant that draws the eye and holds it.",
+    size: '60–100 cm',
+    price: 240,
+    icon: '✦',
+    image: '/plants/blackrose.png',
+    inStock: true,
+  },
+
+  {
+    id: 'regal-pelargonium',
+    name: 'Regal Pelargonium',
+    category: 'Outdoor',
+    desc: 'Pelargonium grandiflorum, known as the Regal or Martha Washington Pelargonium, is the most showy of all the pelargoniums — producing large, velvety blooms in rich shades of pink, burgundy, white, and bicolour, often with dramatic dark feathering at the throat of each petal.\n' +
+        '\n' +
+        'Native to the Cape region, Regal Pelargoniums are perfectly adapted to Cape Town\'s Mediterranean climate and are at their spectacular best in spring and early summer. They prefer cool temperatures and full sun to light shade, making them ideal for south-facing beds, shaded patios, and sheltered spots that get direct morning light.\n' +
+        '\n' +
+        'Unlike common zonal pelargoniums, the Regal variety produces larger individual flowers and a more compact, bushy form. Plant in well-draining soil, water moderately, and deadhead spent blooms regularly to prolong the flowering season.\n' +
+        '\n' +
+        'Regal Pelargoniums are excellent in pots and containers, window boxes, and as statement plants in mixed cottage-style borders. Their bold colour and velvety texture bring an unmistakeable richness to any garden.',
+    size: '30–60 cm',
+    price: 165,
+    icon: '✿',
+    image: '/plants/pelargonium.jpg',
+    inStock: true,
+  },
+
+  {
+    id: 'scented-geranium-small',
+    name: 'Scented Geranium (Small)',
+    category: 'Outdoor',
+    desc: 'The scented geranium is one of those plants that feels quietly magical — not because of its flowers, but because of its leaves.\n' +
+      '\n' +
+      'Belonging to the Pelargonium family, scented geraniums are grown primarily for their fragrant foliage. The scent is released on contact: brush past a leaf, gently crush one between your fingers, and the fragrance comes instantly. Depending on the variety, it might be rose, lemon, mint, citrus, apple, or even pine — a collection of natural perfumes in a single plant.\n' +
+      '\n' +
+      'The leaves themselves are softly textured, deeply lobed or ruffled, and often slightly fuzzy to the touch. This is a plant you interact with, not just look at. The flowers are small and delicate — pale pink, purple, or white — more of a quiet bonus than the main event.\n' +
+      '\n' +
+      'Scented geraniums are most often placed along paths, near seating areas, and wherever people are likely to brush past — because that is exactly when they reward you. Happy in pots, on windowsills, or in garden borders, they ask only for full to partial sun and well-drained soil.\n' +
+      '\n' +
+      'Features\n' +
+      '\n' +
+      '• Fragrant leaves released on touch\n' +
+      '• Varieties include rose, lemon, mint, and citrus\n' +
+      '• Soft, textured, tactile foliage\n' +
+      '• Delicate pale flowers\n' +
+      '• Ideal for paths, borders, and pots\n' +
+      '\n' +
+      'A plant for people who want their garden to be felt as well as seen.',
+    size: '10–15 cm pot',
+    price: 80,
+    icon: '✿',
+    image: '/plants/scented_geranium.jpg',
+    inStock: true,
+  },
+
+  {
+    id: 'scented-geranium-large',
+    name: 'Scented Geranium (Large)',
+    category: 'Outdoor',
+    desc: 'The scented geranium is one of those plants that feels quietly magical — not because of its flowers, but because of its leaves.\n' +
+      '\n' +
+      'Belonging to the Pelargonium family, scented geraniums are grown primarily for their fragrant foliage. The scent is released on contact: brush past a leaf, gently crush one between your fingers, and the fragrance comes instantly. Depending on the variety, it might be rose, lemon, mint, citrus, apple, or even pine — a collection of natural perfumes in a single plant.\n' +
+      '\n' +
+      'The leaves themselves are softly textured, deeply lobed or ruffled, and often slightly fuzzy to the touch. This is a plant you interact with, not just look at. The flowers are small and delicate — pale pink, purple, or white — more of a quiet bonus than the main event.\n' +
+      '\n' +
+      'Scented geraniums are most often placed along paths, near seating areas, and wherever people are likely to brush past — because that is exactly when they reward you. Happy in pots, on windowsills, or in garden borders, they ask only for full to partial sun and well-drained soil.\n' +
+      '\n' +
+      'Features\n' +
+      '\n' +
+      '• Fragrant leaves released on touch\n' +
+      '• Varieties include rose, lemon, mint, and citrus\n' +
+      '• Soft, textured, tactile foliage\n' +
+      '• Delicate pale flowers\n' +
+      '• Ideal for paths, borders, and large pots\n' +
+      '\n' +
+      'A plant for people who want their garden to be felt as well as seen.',
+    size: '25–35 cm pot',
+    price: 100,
+    icon: '✿',
+    image: '/plants/scented_geranium.jpg',
+    inStock: true,
+  },
+
+  {
+    id: 'spekboom',
+    name: 'Spekboom',
+    category: 'Succulents',
+    desc: 'Portulacaria afra\n' +
+      '\n' +
+      'Spekboom is a quietly remarkable plant. Its small, rounded leaves hold water and light with the same easy resilience that has made it one of South Africa\'s most celebrated indigenous plants — capable of growing into a dense shrub or, given time, a small tree.\n' +
+      '\n' +
+      'It is often called a carbon sponge. Spekboom absorbs carbon dioxide at an extraordinary rate, making it one of the most ecologically valuable plants you can grow. In the Eastern Cape, vast thicket systems of Portulacaria afra store as much carbon per hectare as a tropical rainforest.\n' +
+      '\n' +
+      'At home in your garden, it asks very little. Full sun and occasional water are enough. It thrives in pots, grows happily in rocky or poor soil, and can be shaped into a hedge or left to grow freely. The small leaves and woody stems also make it a favourite for bonsai.\n' +
+      '\n' +
+      'Features\n' +
+      '\n' +
+      '• Indigenous to South Africa\n' +
+      '• Exceptional carbon absorption\n' +
+      '• Drought-tolerant and low-maintenance\n' +
+      '• Suitable for pots, hedges, or bonsai\n' +
+      '• Year-round interest\n' +
+      '\n' +
+      'Full sun · Low water · Year-round',
+    size: '20–40 cm',
+    price: 130,
+    icon: '✦',
+    image: '/plants/spekboom.jpg',
+    inStock: true,
+  },
+
+  {
+    id: 'tomato-seedlings',
+    name: 'Tomato Seedlings',
+    category: 'Seedlings',
+    desc: 'Ready-to-plant tomato seedlings — robust, healthy starts that give you a head start on the season. Grown from tried-and-tested varieties suited to Cape Town\'s warm summers, these seedlings are ideal for raised beds, vegetable gardens, or large pots on a sunny patio.\n' +
+        '\n' +
+        'Tomatoes thrive in full sun with at least six hours of direct light per day. Plant into rich, well-draining soil and water deeply but infrequently, allowing the top layer to dry slightly between waterings. Stake or cage as the plant grows to support the fruiting branches.\n' +
+        '\n' +
+        'With the right care, each plant will reward you with a generous harvest of sweet, flavourful tomatoes from late summer through to autumn. Perfect for home cooks, kitchen gardens, and anyone who knows that a tomato grown at home simply tastes better.',
+    size: '10–15 cm seedling',
+    price: 45,
+    icon: '✿',
+    image: '/plants/tomato.jpg',
+    inStock: true,
+  },
 
 ];
 

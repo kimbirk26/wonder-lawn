@@ -60,6 +60,68 @@ export function SuitIcon({ suit, size = 16, className = '' }) {
   )
 }
 
+export function CrownIcon({ size = 32, className = '' }) {
+  return (
+    <svg viewBox="0 0 32 32" width={size} height={size} className={className} aria-hidden="true">
+      <path
+        d="M3 27 L3 14 L10 19 L16 4 L22 19 L29 14 L29 27 Z"
+        fill="currentColor"
+      />
+    </svg>
+  )
+}
+
+export function CheshireIcon({ size = 24, className = '' }) {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width={size} height={size} className={className} aria-hidden="true" fill="none">
+      <ellipse cx="21" cy="24" rx="3.4" ry="4.2" fill="currentColor"/>
+      <ellipse cx="43" cy="24" rx="3.4" ry="4.2" fill="currentColor"/>
+      <path d="M14 37c7 8 15 12 18 12s11-4 18-12c-3 2-7 4-11 5l-2-4-3 5-3-5-2 4c-4-1-8-3-11-5Z" fill="currentColor"/>
+    </svg>
+  )
+}
+
+export function KeyIcon({ size = 24, className = '' }) {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width={size} height={size} className={className} aria-hidden="true" fill="none">
+      <path d="M24 36a14 14 0 1 1 11-6h21v6h-5v5h-6v5h-7v-7h-6a14 14 0 0 1-8 3Z" fill="currentColor"/>
+      <circle cx="24" cy="22" r="6" fill="#f8f3ea"/>
+    </svg>
+  )
+}
+
+export function RabbitIcon({ size = 24, className = '' }) {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width={size} height={size} className={className} aria-hidden="true" fill="none">
+      <path d="M40 8c2-6 8-8 11-5 3 3 1 10-2 15-2 4-3 8-2 10 7 2 12 7 12 15 0 11-10 19-24 19S11 56 11 45c0-10 8-18 19-19-1-4 0-8 2-13 2-5 5-8 8-8Z" fill="currentColor"/>
+      <path d="M46 10c1-4 0-7-2-8-2-1-4 1-5 5-1 3 0 7 2 8 2 1 4-1 5-5Z" fill="currentColor"/>
+      <circle cx="25" cy="42" r="2.3" fill="#f8f3ea"/>
+    </svg>
+  )
+}
+
+export function PocketWatchIcon({ size = 24, className = '' }) {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width={size} height={size} className={className} aria-hidden="true" fill="none">
+      <path d="M27 8h10a4 4 0 0 1 0 8h-1v4c10 2 18 11 18 23 0 13-10 23-22 23S10 56 10 43c0-12 8-21 18-23v-4h-1a4 4 0 0 1 0-8Z" fill="currentColor"/>
+      <circle cx="32" cy="43" r="16" fill="#f8f3ea"/>
+      <path d="M32 33v10l7 4" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
+      <circle cx="32" cy="43" r="1.7" fill="currentColor"/>
+    </svg>
+  )
+}
+
+export function TeacupPackIcon({ size = 24, className = '' }) {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width={size} height={size} className={className} aria-hidden="true" fill="none">
+      <path d="M14 25h28v10c0 9-6 15-14 15S14 44 14 35V25Z" fill="currentColor"/>
+      <path d="M42 28h5c5 0 7 3 7 7s-3 8-8 8h-4" stroke="currentColor" strokeWidth="4" strokeLinecap="round"/>
+      <path d="M12 52h36" stroke="currentColor" strokeWidth="4" strokeLinecap="round"/>
+      <path d="M24 16c2 2 2 4 0 6M32 14c2 2 2 5 0 7" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" opacity="0.85"/>
+    </svg>
+  )
+}
+
 // Cycles through suits by index — handy for lists
 export function suitAt(index) {
   return SUITS[index % 4]
